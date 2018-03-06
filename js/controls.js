@@ -39,6 +39,7 @@ function initializePlayer() {
 
   durationSeconds = Math.floor(video.duration % 60)
 
+  
   if (durationSeconds < 10 ) {
 
     seconds = "0" + durationSeconds;
@@ -61,9 +62,20 @@ function initializePlayer() {
   fullScreenButton.addEventListener('click', toggleFullScreen, false);
   volumeSlider.addEventListener('input', setVolume, false);
   
+  progressBar.addEventListener('mouseenter', function(e) {
+
+    thumbnail.css({ span.thumb: block  })
+
+
+  });
+
+  progressBar.addEventListener('mouseleave', function(e) {
+
+    thumbnail.css({ span.thumb: none; })
+
+  });
   video.addEventListener('timeupdate', updateProgress, false);
   progressBar.addEventListener('mouseup', function(e) {
-
     //if user clicks on progress bar before video has begun playing, simply fade out coverimage. 
     if (!video.currentTime) {
 
