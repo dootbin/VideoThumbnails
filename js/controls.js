@@ -63,16 +63,15 @@ function initializePlayer() {
   volumeSlider.addEventListener('input', setVolume, false);
   
   progressBar.addEventListener('mouseenter', function(e) {
-    console.log('enter');
     $thumbnail.css('display', 'block');
-
+    $thumbnail.addClass('showThumbs');
+    $thumbnail.addClass('thumb');
 
   });
 
   progressBar.addEventListener('mouseleave', function(e) {
-    console.log('leave');
     $thumbnail.css('display', 'none');
-
+    $thumbnail.removeClass('showThumbs');
   });
 
   progressBar.addEventListener('mousemove', function(e) {
@@ -103,7 +102,6 @@ function initializePlayer() {
     // first we convert from mouse to time position ..
   var mousePos = Math.floor((e.offsetX * video.duration) / progressBar.offsetWidth);
   
-  console.log(mousePos);
   var cuesList = video.textTracks[0].cues;
   var urlString;
   // ..then we find the matching cue..
@@ -114,14 +112,19 @@ function initializePlayer() {
           break;
       };
   }
-  urlString = "thumbnail" + (i + 1) + ".png";
+  urlString = "thumbnails" + (i + 1) + ".png";
   
   // ..next we unravel the JPG url and fragment query..
   var url = cuesList[mousePos].text;
   var urlString = "url(" + url + ")";
-  console.log(url);
  
   $thumbnail.css('background', url);
+  $thumbnail.css('left', e.offsetX);
+ 
+  // ..and last we style the thumbnail overlay
+  
+  
+//
 
   
 
