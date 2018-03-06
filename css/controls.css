@@ -1,0 +1,333 @@
+/* fontawesome is the font family containing the icons we will be using */
+@font-face {
+	font-family: 'fontawesome';
+	src:url('../fonts/fontawesome.eot');
+	src:url('../fonts/fontawesome.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/fontawesome.svg#fontawesome') format('svg'),
+		url('../fonts/fontawesome.woff') format('woff'),
+		url('../fonts/fontawesome.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	background-color: #222;
+	color: #fff;
+	padding: 0;
+	margin: 0;
+}
+
+#wrapper {
+	width: 860px;
+	margin: 0 auto;
+	position: relative;   /* positioning parent */
+	/*border: 1px solid green;*/
+}
+
+h2 {
+
+  font-family: Impact, 'Trebuchet MS', Arial;
+  font-size: 2.6em;
+  font-weight: normal;
+  margin-bottom: .2em;
+  letter-spacing: .1em;
+  text-align: center;
+  opacity: .8;
+  color: #222;
+  text-shadow: -1px -1px 0px rgba(255, 255, 255, .3),
+    0 -2px 6px rgba(0, 0, 0, .8),
+    1px 0 6px rgba(255, 255, 255, .4),
+    -2px -8px 20px rgba(255, 255, 255, .4);
+  animation: smoke 10s 1 forwards;
+}
+
+#aboveTheControls {
+  width: 50em;
+  padding: .6em 0 0; 
+  margin: 0 auto 1em;
+}
+
+#videoCover {
+
+  position: absolute;
+  top: 4.3em;
+  left: 1.9em;
+
+}
+
+video {
+
+  position: relative;
+  transition: all 2s ease;
+
+}
+
+.shadowEffect { position: relative; }
+
+.shadowEffect::before,
+.shadowEffect::after {
+
+  content: '';
+  position: absolute;
+  bottom: 15px;
+  top: 80%;
+  left: 10px;
+  max-width: 300px;
+  width: 50%;
+  background: #111;
+  box-shadow: 0 18px 10px #111;
+  transform: rotate(-3deg);
+
+}
+
+.shadowEffect::after {
+
+  right: 10px;
+  left: auto;
+  transform: rotate(3deg);
+  z-index: -1;
+}
+
+
+#controls {
+
+  width: 90%;
+  margin: 0 auto;
+
+}
+
+#progressBar {
+
+  background-color: #555;
+  height: 8px;
+  margin-bottom: 6px; 
+  
+}
+
+#played {
+  background-color: #47a3da;
+  position: relative;
+  top: 1px;
+  height: 6px;
+  width: 0%;
+  display: block;
+  border-top-right-radius: 20%;
+  border-bottom-right-radius: 20%;
+  
+}
+
+#lowerControls {
+
+  font-family: 'Trebuchet MS', Arial;
+  font-size: 0.9em;
+
+
+}
+
+button, input {
+
+  outline: none;
+
+}
+
+
+#playPause {
+
+  position: relative;
+  left: .2em;
+  background: none;
+  border: none;
+  cursor: default;
+  margin-right: 1em;
+}
+
+#playPause::before {
+
+  font-family: 'fontawesome';
+  color: #47a3da;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.4em;
+
+}
+
+
+.playBtn::before {
+
+  content: '\f04b';
+  
+}
+
+.pauseBtn::before {
+
+  content: '\f04c';
+
+}
+
+#playPause:hover::before {
+
+  color: #ddd;
+
+}
+
+
+#stopButton {
+  
+  position: relative;
+  background: none;
+  border: none;
+  cursor: default;
+  top: -.08em;
+  left: 0;
+  padding: 0;
+  margin-right: 1em;
+}
+
+#stopButton:before {
+
+  font-family: 'fontawesome';
+  content: '\f04d';
+  color: #47a3da;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+#stopButton:hover::before {
+  color: #ddd;
+}
+
+#mute {
+  float: right;
+  position: relative;
+  top: -.25em;
+  background: none;
+  border: none;
+  cursor: default;
+  padding: 0;
+  margin-right: .4em;
+}
+
+#mute::before {
+
+  font-family: 'fontawesome';
+  color: #47a3da;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.2em;
+
+}
+
+.mute::before {
+
+  content: '\f027';
+  
+}
+
+.unmute::before {
+
+  content: '\f026'
+
+}
+
+#mute:hover::before {
+
+  color: #ddd;
+
+}
+
+
+#fullScreen {
+  float: right; 
+  position: relative;
+  background: none;
+  border: none;
+  cursor: default;
+  top: -.15em;
+  left: 0;
+  padding: 0;
+  margin-right: .4em;
+}
+
+#fullScreen:before {
+
+  font-family: 'fontawesome';
+  content: '\f0b2';
+  color: #47a3da;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7em;
+}
+
+#fullScreen:hover::before {
+  color: #ddd;
+}
+
+#volumeSlider {
+
+  float: right;
+  position: relative;
+  top: .6em;
+  width: 12%;
+  margin-right: 1em;
+
+}
+
+input[type='range'] {
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+
+  background: #fff;
+  border: 1px solid #666;
+  height: 4px;
+  border-radius: 34%;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  
+  background: #fff;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+
+}
+
+@keyframes smoke {
+
+   0% {text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3),
+				0px -2px 0px rgba(0, 0, 0, 0.8),
+				1px 0px 6px rgba(255, 255, 255, 0.4);}
+				
+	30% {text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3),
+				0px -2px 0px rgba(0, 0, 0, 0.8),
+				1px 0px 6px rgba(255, 255, 255, 0.8),
+				0px -8px 26px rgba(255, 255, 255, 0.6),
+				2px -20px 30px rgba(255, 255, 255, 0.4);}
+				
+	50% {text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3),
+				0px -2px 0px rgba(0, 0, 0, 0.8),
+				1px 0px 6px rgba(255, 255, 255, 0.4),
+				-1px -4px 20px rgba(255, 255, 255, 0.2),
+				40px -35px 28px rgba(255, 255, 255, 0.3);}
+				
+	75% {text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3),
+				0px -2px 0px rgba(0, 0, 0, 0.8),
+				1px 0px 6px rgba(255, 255, 255, 0.4),
+				-1px -4px 20px rgba(255, 255, 255, 0.2),
+				55px -35px 45px rgba(255, 255, 255, 0.1);}
+    
+  85% {text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3),
+				0px -2px 0px rgba(0, 0, 0, 0.8),
+				1px 0px 6px rgba(255, 255, 255, 0.2),
+				-1px -4px 20px rgba(255, 255, 255, 0.1),
+				65px -35px 45px rgba(255, 255, 255, 0.1);}
+				
+	100% {text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3),
+				0px -2px 0px rgba(0, 0, 0, 0.8),
+				1px 0px 6px rgba(255, 255, 255, 0.4),
+				-1px -4px 20px rgba(255, 255, 255, 0),
+				70px -35px 55px rgba(255, 255, 255, 0);}
+  }

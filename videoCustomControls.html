@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Simple Video - Needlegun 1866</title>
+	<meta charset="utf-8">
+
+	<link href="css/controls.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+	
+	<script src="js/modernizr.custom.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body onload="initializePlayer()">
+
+	<div id="wrapper">
+	
+		<h2>Needlegun Breechloader - 1866</h2>
+		
+		<div id="aboveTheControls" class="shadowEffect">
+		
+			<!-- note: using just width (no height) controls bar stays pinned correctly -->
+			<video class="shadowEffect" width="800px" controls preload="metadata">
+				<source src="./media/Needlegun.webm">
+				<source src="./media/Needlegun.mp4">
+			</video>
+	
+		</div>
+		
+		<img src="images/videoCover02.jpg" id="videoCover" alt="Video Cover">
+		
+		<!-- Define the controls -->
+		<div id="controls">
+		
+			<div id="progressBar"><span id="played"></span></div>
+			
+			<div id="lowerControls">
+				
+				<button id="playPause" class="playBtn"></button>
+				
+				<button id="stopButton"></button>
+				
+				<span id="currentTime">0:00</span> / 
+				<span id="durationTime">0:00</span>
+				
+				<button id="fullScreen"></button>
+				
+				<input id="volumeSlider" class="sliderBar" type="range" min="0" max="1" value="1" step="0.1">
+				
+				<span class="highlight"></span>
+				
+				<button id="mute" class="mute"></button>
+				
+			</div>  <!-- end div#lowerControls -->
+		</div>
+	</div>
+	
+	<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="js/controls.js"></script>
+
+</body>
+</html>
