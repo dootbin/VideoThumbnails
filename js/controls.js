@@ -9,7 +9,6 @@ function initializePlayer() {
 
   //select the video cover image and wrap it in a jquery object. 
   $videoCover = $('#videoCover');
-
   var seconds;
 
   /* Grab handles (nicknames or references) to our various
@@ -25,7 +24,8 @@ function initializePlayer() {
   muteButton = document.querySelector('#mute');
   volumeSlider = document.querySelector('#volumeSlider');
   fullScreenButton = document.querySelector('#fullScreen');
-  
+  thumbnail = document.querySelector('span.thumb');
+
   lastVolumeSetting = volumeSlider.value;
 
   // Time values
