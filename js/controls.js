@@ -1,3 +1,9 @@
+/*
+Benjamin Miles
+Will
+Drew
+*/
+
 function initializePlayer() {
 
   /* get a reference to our video */
@@ -63,9 +69,10 @@ function initializePlayer() {
   volumeSlider.addEventListener('input', setVolume, false);
   
   progressBar.addEventListener('mouseenter', function(e) {
+    $thumbnail.addClass('thumb');
     $thumbnail.css('display', 'block');
     $thumbnail.addClass('showThumbs');
-    $thumbnail.addClass('thumb');
+
 
   });
 
@@ -100,7 +107,7 @@ function initializePlayer() {
     * text: the text of the object in un-parsed format
 */
     // first we convert from mouse to time position ..
-  var mousePos = Math.floor((e.offsetX * video.duration) / progressBar.offsetWidth);
+  var mousePos = Math.floor(e.offsetX * (video.duration / progressBar.offsetWidth));
   
   var cuesList = video.textTracks[0].cues;
   var urlString;
@@ -115,11 +122,11 @@ function initializePlayer() {
   urlString = "thumbnails" + (i + 1) + ".png";
   
   // ..next we unravel the JPG url and fragment query..
-  var url = cuesList[mousePos].text;
+  var url = cuesList[i].text;
   var urlString = "url(" + url + ")";
  
-  $thumbnail.css('background', url);
-  $thumbnail.css('left', e.offsetX);
+  $thumbnail.css('background', urlString);
+  $thumbnail.css('left', (e.offsetX + 'px'));
  
   // ..and last we style the thumbnail overlay
   
