@@ -96,6 +96,23 @@ video {
 
 }
 
+
+.showThumbs {
+  width: 100%;
+  height: 70px;
+  position: absolute;
+  top: -80px;
+}
+
+.thumb {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 70px;
+}
+
 #progressBar {
 
   background-color: #555;
@@ -293,22 +310,6 @@ input[type='range']::-webkit-slider-thumb {
   width: 13px;
   border-radius: 50%;
 
-}
-
-.showThumbs {
-  width: 100%;
-  height: 70px;
-  position: absolute;
-  top: -80px;
-}
-
-.thumb {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120px;
-  height: 70px;
 }
 
 @keyframes smoke {
