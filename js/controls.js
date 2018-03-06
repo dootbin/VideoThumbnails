@@ -64,14 +64,21 @@ function initializePlayer() {
   
   progressBar.addEventListener('mouseenter', function(e) {
 
-    thumbnail.css({ span.thumb: block  })
+    thumbnail.css({display:  block });
 
 
   });
 
   progressBar.addEventListener('mouseleave', function(e) {
 
-    thumbnail.css({ span.thumb: none; })
+    thumbnail.css({display: none });
+
+  });
+
+  progressBar.addEventListener('mouseover', function(e) {
+
+    
+  
 
   });
   video.addEventListener('timeupdate', updateProgress, false);
