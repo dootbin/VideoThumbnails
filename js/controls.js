@@ -16,6 +16,7 @@ function initializePlayer() {
    *
    */
 
+  $thumbnail = $('span.thumb');
 
   playPauseButton = document.querySelector('#playPause');
   stopButton =  document.querySelector('#stopButton');
@@ -24,7 +25,6 @@ function initializePlayer() {
   muteButton = document.querySelector('#mute');
   volumeSlider = document.querySelector('#volumeSlider');
   fullScreenButton = document.querySelector('#fullScreen');
-  thumbnail = document.querySelector('span.thumb');
 
   lastVolumeSetting = volumeSlider.value;
 
@@ -63,21 +63,66 @@ function initializePlayer() {
   volumeSlider.addEventListener('input', setVolume, false);
   
   progressBar.addEventListener('mouseenter', function(e) {
-
-    thumbnail.css({display:  block });
+    console.log('enter');
+    $thumbnail.css('display', 'block');
 
 
   });
 
   progressBar.addEventListener('mouseleave', function(e) {
-
-    thumbnail.css({display: none });
+    console.log('leave');
+    $thumbnail.css('display', 'none');
 
   });
 
-  progressBar.addEventListener('mouseover', function(e) {
+  progressBar.addEventListener('mousemove', function(e) {
 
-    
+   /*
+    * q list variable
+    * textTracks is a TextTrackList object which represents the 
+    * avalible text tracks for the video. 
+    * This data comes from our .vtt file each avalible textTracks
+    * is represented by a textTracks object
+    *
+    * A TextTrack object is an interface - part of an API for handling 
+    * WebVTT (text tracks on media presentations) - which describes and
+    * controls the text track associated with a particular <track> element
+    * one of its properties is cues. 
+    *
+    * cues (readonly property) is a TextTrackCueList object which contains
+    * all of the tracks cues. 
+    *
+    * TextTrackCueList objects are a list of TextTrackCue objects which have
+    * properties like:
+    *
+    * startTime: The text track cue startTime in seconds 
+    * endTime: The text track endTme in seconds
+    *
+    * text: the text of the object in un-parsed format
+*/
+    // first we convert from mouse to time position ..
+  var mousePos = Math.floor((e.offsetX * video.duration) / progressBar.offsetWidth);
+  
+  console.log(mousePos);
+  var cuesList = video.textTracks[0].cues;
+  var urlString;
+  // ..then we find the matching cue..
+ 
+  var cuesList = video.textTracks[0].cues;
+  for (var i=0; i<cuesList.length; i++) {
+      if(cuesList[i].startTime <= mousePos && cuesList[i].endTime > mousePos) {
+          break;
+      };
+  }
+  urlString = "thumbnail" + (i + 1) + ".png";
+  
+  // ..next we unravel the JPG url and fragment query..
+  var url = cuesList[mousePos].text;
+  var urlString = "url(" + url + ")";
+  console.log(url);
+ 
+  $thumbnail.css('background', url);
+
   
 
   });
